@@ -50,7 +50,7 @@ resource "aws_route_table" "proj-rt" {
 resource "aws_subnet" "proj-subnet" {
  vpc_id = aws_vpc.proj-vpc.id
  cidr_block = "10.0.1.0/24"
- availability_zone = "ap-southeast-1a"
+ availability_zone = "us-east-1"
  tags = {
  Name = "subnet1"
  }
@@ -117,7 +117,7 @@ resource "aws_eip" "proj-eip" {
 resource "aws_instance" "proj-instance" {
  ami = "ami-0fed77069cd5a6d6c"
  instance_type = "t2.micro"
- availability_zone = "ap-southeast-1a"
+ availability_zone = "us-east-1"
  key_name = "DevOps"
  network_interface {
  device_index = 0
@@ -134,4 +134,4 @@ resource "aws_instance" "proj-instance" {
  Name = "project-instance"
  }
 }
-edureka@kmaster:~/terraform/project$
+
