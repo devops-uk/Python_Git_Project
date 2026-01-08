@@ -109,6 +109,7 @@ resource "aws_network_interface" "proj-ni" {
 
 # Attaching an elastic IP to the network interface
 resource "aws_eip" "proj-eip" {
+VPC                = true 
  network_interface = aws_network_interface.proj-ni.id
  associate_with_private_ip = "10.0.1.10"
 }
@@ -117,7 +118,7 @@ resource "aws_eip" "proj-eip" {
 resource "aws_instance" "proj-instance" {
  ami = "ami-0ecb62995f68bb549"
  instance_type = "t2.micro"
- availability_zone = "us-east-1"
+ availability_zone = "us-east-1a"
  key_name = "DevOps"
  network_interface {
  device_index = 0
